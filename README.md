@@ -4,7 +4,7 @@
 Desafio Prático para Desenvolvedor  Welcome &amp; Login
 
 <p align="center">
-  <img alt="Welcome & Login" title="Welcome-Login" src="/welcome-login/.github/Cover.png" />
+  <img alt="Welcome & Login" title="Welcome-Login" src="/welcome-login/.github/Reviews/Navigation.png" />
 </p>
 
 ###

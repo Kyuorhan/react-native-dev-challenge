@@ -19,22 +19,22 @@ export function SignButton({
 
   return (
     <TouchableOpacity style={{ 
-        width: normalize(300) ,
-        height: normalize(50, 'height'),
+        width: normalize(280) ,
+        height: normalize(56),
         backgroundColor: theme.colors.primary,
         shadowColor: theme.colors.primary,
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: normalize(0.8),
         shadowRadius: normalize(10),
         elevation: normalize(8),
-        margin: normalize(15),
+        margin: normalize(10, 'height'),
         borderRadius: normalize(10),
       }} className="justify-center items-center" 
       {...rest}>
       <Text style={{ 
-        width: normalize(300),
+        width: normalize(280),
         color: titleColors,    
-        fontSize: 18 * fontScale,       
+        fontSize: 18 * fontScale + normalize(1),       
       }} className="font-poppins-semibold text-center">
         {title}
       </Text>      

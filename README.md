@@ -4,7 +4,7 @@
 Confira - [Desafio Prático para Desenvolvedor  Welcome &amp; Login](https://github.com/Kyuorhan/react-native-dev-challenge/tree/master/welcome-login)
 
 <p align="center">
-  <img alt="Welcome & Login" title="Welcome-Login" src="/welcome-login/.github/Cover.png" />
+  <img alt="Welcome & Login" title="Welcome-Login" src="/welcome-login/.github/Reviews/Navigation.png" />
 </p>
  <br>  <br>  <br>  <br>
  

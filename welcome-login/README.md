@@ -35,36 +35,29 @@
 ### <h3 align="center">Layout</h3>
 ##
 
+###
+
+
+### <h3 align="center">Layout</h3>
+##
+
 <p align="center">
-  <img alt="Welcome & Login" title="Welcome-Login" src=".github/Cover.png" />
+  <img alt="Welcome & Login" title="Welcome-Login" src=".github/Reviews/Navigation.gif" />
+</p>
+<p align="center">
+  <img alt="Welcome & Login" title="Welcome-Login" src=".github/Reviews/Inputs.gif" />
 </p>
 
-<p align="center">O Layout foi desenvolvido por <a href="https://www.instagram.com/kyuorhan">Jhonny Kyuorhan</a>, e você pode acessá-lo no Figma:</p>
+<p align="center"> Exibindos em diferentes dispositivos e escala de display de resolução.</p>
 
 <br>
 
+Projeto no **``` Figma ```**
 <p> 
     
   >- [Mobile](https://www.figma.com/file/8bXE8oDZMwkclGo75rciWa/Onboarding-(Login-%26-Register)--App-Ui-(Community)?type=design&node-id=0%3A1&mode=design&t=mxP77cr8ySn26XMw-1) 📱
 </p>
 
-<br>
-
-###
-
-
-### <h3 align="center">Demostração</h3>
-##
-
-```
-
-
-
-
-
-
-
-```
 <br>
 
 ### <h3 align="center">Como Usar</h3>

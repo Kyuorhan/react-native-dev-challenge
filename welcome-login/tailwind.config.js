@@ -18,7 +18,7 @@ module.exports = {
         'poppins-semibold': 'Poppins_600SemiBold',
         'poppins-medium': 'Poppins_500Medium',
         'poppins-regular': 'Poppins_400Regular',
-      }
+      },     
     },
   },
   plugins: [],

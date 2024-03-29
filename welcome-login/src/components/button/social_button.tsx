@@ -6,7 +6,7 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 
 
 type SocialButtonProps = TouchableOpacityProps & {
-  icon: string
+  icon?: string
 }
 export function SocialButton({ 
     icon,
@@ -21,7 +21,7 @@ export function SocialButton({
           margin: normalize(6),
         }} className="justify-center items-center rounded-xl" 
         {...rest}>  
-        <Ionicons name="logo-google" size={22} color="#000" />
+        <Ionicons name="logo-google" size={normalize(22)} color="#000" />
       </TouchableOpacity>
       <TouchableOpacity style={{ 
           width: normalize(64),
@@ -30,7 +30,7 @@ export function SocialButton({
           margin: normalize(6),
         }} className="justify-center items-center rounded-xl" 
         {...rest}>  
-        <Ionicons name="logo-facebook" size={22} color="#000" />
+        <Ionicons name="logo-facebook" size={normalize(22)} color="#000" />
       </TouchableOpacity>
       <TouchableOpacity style={{ 
           width: normalize(64),
@@ -39,7 +39,7 @@ export function SocialButton({
           margin: normalize(6),
         }} className="justify-center items-center rounded-xl" 
         {...rest}>  
-        <Ionicons name="logo-apple" size={22} color="#000" />
+        <Ionicons name="logo-apple" size={normalize(22)} color="#000" />
       </TouchableOpacity>      
     </View>
     

@@ -1,4 +1,4 @@
-import { Image, View, Text, StyleSheet } from "react-native"
+import { Image, View, Text, StyleSheet, useWindowDimensions } from "react-native"
 import { router } from 'expo-router' 
 
 import { useForm, Controller } from "react-hook-form"; 
@@ -11,37 +11,46 @@ import { theme } from "@/theme";
 import { SocialButton } from "@/components/button/social_button";
 
 export default function SingUp() {
-  const { control, handleSubmit } = useForm()
+  const { fontScale } = useWindowDimensions();
 
   return ( 
     <View style={styles.container}>
       <Header
         title="Create Account"
         subTitle={"Create an account so you can explore all the \n existing jobs"}
-          className="text-black text-sm font-poppins-medium text-center"
+        style={{          
+          fontSize: 14 * fontScale,
+          marginTop: normalize(5),
+        }} className="text-black font-poppins-medium text-center"
       /> 
+       <Image style={styles.imageContainer}          
+          source={require("@/assets/images/union.png")}
+      />         
       <View style={styles.inputContainer}>
         <Input placeholder="Email"/>   
         <Input placeholder="Password"/> 
         <Input placeholder="Confirm Password"/>  
-      </View>  
-      <Image style={styles.imageContainer}          
-          source={require("@/assets/images/union.png")}
-      />      
+      </View>    
       <SignButton 
         title="Sign Up" 
         titleColors={theme.colors.white}  
         // onPress={() => router.navigate('/signin/')}     
       />     
-      <Text style={styles.createdUserContainer}  
-        className="text-sm font-poppins-semibold">
+      <Text style={{
+        color: '#422949',
+        fontSize: 14 * fontScale,
+        paddingTop: normalize(20),
+      }} className="font-poppins-semibold">
         Already have an account
       </Text> 
       <View style={styles.socialContainer}>
-        <Text className="text-primary text-sm font-poppins-semibold mb-3">
+        <Text style={{
+          fontSize: 14 * fontScale,
+          marginBottom: normalize(10),
+        }} className="text-primary font-poppins-semibold">
           Or continue with
         </Text> 
-        <SocialButton icon="google"/>
+        <SocialButton />
       </View>                        
     </View>  
   );
@@ -58,10 +67,6 @@ const styles = StyleSheet.create({
     paddingTop: normalize(48), 
     paddingBottom: normalize(20),  
     alignItems: "flex-end",
-  },
-  createdUserContainer: {
-    color: '#422949',
-    paddingTop: normalize(20),
   },
   socialContainer: {
     paddingTop: normalize(50),

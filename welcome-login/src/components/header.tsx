@@ -3,8 +3,12 @@ import {
   Text, 
   TextProps, 
   View, 
-  StyleSheet, 
+  StyleSheet,
+  TouchableOpacity,
+  useWindowDimensions, 
 } from 'react-native'
+import { router } from 'expo-router'
+import { MaterialIcons } from '@expo/vector-icons';
 
 import normalize from 'react-native-normalize';
 
@@ -19,29 +23,34 @@ export function Header({
   subTitle, 
   ...subTitleProps 
 }: HeaderProps ) {
+  const { fontScale } = useWindowDimensions();
+
   return (
     <View style={styles.container}>
-      <Image style={styles.containerEclipse}          
+      <Image style={styles.eclipseContainer}          
           source={require("@/assets/images/eclipse.png")}
       />
       <View style={styles.textContainer}>
-        <Text className='text-primary text-center text-3xl font-poppins-bold pt-5 pb-1'>
+        <Text style={{
+          fontSize: 30 * fontScale,
+        }} className='text-primary text-center text-3xl font-poppins-bold pt-5 pb-1'>
           {title}
         </Text>  
         <Text {...subTitleProps}>
           {subTitle}
         </Text>    
       </View>   
-      {/* <View style={styles.buttomContainer}>
+      <View style={styles.buttomContainer}>
         <TouchableOpacity style={{ 
             width: normalize(64),
-            height: normalize(48),     
+            height: normalize(48, 'height'),     
             // backgroundColor: "#1F41BB",
             margin: normalize(6),
-          }} className="justify-center items-center rounded-xl">  
-          <MaterialIcons name="arrow-back" size={32} color="#000" />
+          }} className="justify-center items-center rounded-xl"
+          onPress={() => router.back()}>  
+          <MaterialIcons name="arrow-back" size={normalize(28)} color="#000" />
         </TouchableOpacity>  
-      </View>       */}
+      </View>      
     </View>
   )  
 }
@@ -54,12 +63,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     // backgroundColor: "#1F41BB",
   },
-  // buttomContainer: {
-  //   left: '1.5%',
-  //   // top: '10%', 
-  //   position: 'absolute',
-  // },
-  containerEclipse: {
+  buttomContainer: {
+    left: '1.5%',
+    top: '20%', 
+    position: 'absolute',
+  },
+  eclipseContainer: {
     width: normalize(650),
     height: normalize(611),
     right: '-78%',

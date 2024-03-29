@@ -1,8 +1,16 @@
-import { View, TextInput, TextInputProps, StyleSheet } from "react-native";
+import { 
+  View, 
+  TextInput, 
+  TextInputProps, 
+  StyleSheet,  
+} from "react-native";
 import { useState } from "react";
-import { Feather } from "@expo/vector-icons";
 import normalize from "react-native-normalize";
+
 import { fonts } from "@/theme/fonts";
+import { getStyle } from "react-native-svg/lib/typescript/xml";
+
+
 
 type InputProps = TextInputProps & {
   placeholder?: string
@@ -17,8 +25,8 @@ export function Input({
   onChangeText,
   ...rest 
 }: InputProps ) {
-  const [isFocused, setFocus] = useState(false);
-  
+  const [isFocused, setFocus] = useState(false);  
+
   return (
     <View style={styles.container}>
       
@@ -39,30 +47,28 @@ export function Input({
 
 const styles = StyleSheet.create({
   container: {
-    padding: normalize(12), 
-    // justifyContent: "center",
-    // alignItems: "center",
+    padding: normalize(12),     
   },    
   input: {
     width: normalize(300),
-    height: normalize(56),
+    height: normalize(50, 'height'),
     borderRadius: normalize(10),
     paddingVertical: normalize(10),
     paddingHorizontal: normalize(20),
     fontFamily: fonts.family.medium,
-    fontSize:normalize(fonts.size.body.md),
+    fontSize: normalize(fonts.size.body.sm),
     backgroundColor: '#F1F4FF',
   },
   inputFocus: {
     width: normalize(300),
-    height: normalize(56),
+    height: normalize(56, ),
     borderColor: '#1F41BB', 
     borderWidth: 2,
     borderRadius: normalize(10),
     paddingVertical: normalize(10),
     paddingHorizontal: normalize(20),
     fontFamily: fonts.family.medium,
-    fontSize:normalize(fonts.size.body.md),
+    fontSize: normalize(fonts.size.body.sm),
     backgroundColor: '#F1F4FF', 
   },  
 })

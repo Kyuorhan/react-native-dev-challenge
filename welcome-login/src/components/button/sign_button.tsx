@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity, TouchableOpacityProps, StyleSheet } from "react-native";
+import { Text, TouchableOpacity, TouchableOpacityProps, StyleSheet, useWindowDimensions } from "react-native";
 
 import normalize from 'react-native-normalize';
 
@@ -15,25 +15,27 @@ export function SignButton({
     titleColors, 
     ...rest 
 }: SingButtonProps ){
+  const { fontScale } = useWindowDimensions();
+
   return (
     <TouchableOpacity style={{ 
-        width: normalize(300),
-        height: normalize(56),
+        width: normalize(300) ,
+        height: normalize(50, 'height'),
         backgroundColor: theme.colors.primary,
         shadowColor: theme.colors.primary,
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.8,
-        shadowRadius: 10,
-        elevation: 8,
+        shadowOpacity: normalize(0.8),
+        shadowRadius: normalize(10),
+        elevation: normalize(8),
         margin: normalize(15),
-      }} className="justify-center items-center rounded-lg" 
+        borderRadius: normalize(10),
+      }} className="justify-center items-center" 
       {...rest}>
       <Text style={{ 
         width: normalize(300),
-        textAlign: "center",
-        textAlignVertical: "center",
-        color: titleColors,        
-      }} className="text-lg font-poppins-semibold">
+        color: titleColors,    
+        fontSize: 18 * fontScale,       
+      }} className="font-poppins-semibold text-center">
         {title}
       </Text>      
     </TouchableOpacity>

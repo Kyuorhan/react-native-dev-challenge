@@ -1,11 +1,7 @@
-import { ActivityIndicator, View } from 'react-native'
-
-import colors from 'tailwindcss/colors'
+import { ActivityIndicator } from 'react-native'
 
 export function Loading(){
-    return (
-        <View className="flex-1 items-center justify-center bg-white">
-            <ActivityIndicator color={colors.black} />
-        </View>
+    return (     
+        <ActivityIndicator className='flex-1 bg-gray-900 items-center justify-center' /> 
     )
 }

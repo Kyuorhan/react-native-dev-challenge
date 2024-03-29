@@ -1,4 +1,9 @@
-import { Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
+import { 
+  Text, 
+  TouchableOpacity, 
+  TouchableOpacityProps,
+  useWindowDimensions
+} from "react-native";
 
 import normalize from 'react-native-normalize';
 
@@ -14,17 +19,22 @@ export function WelcomeButton({
     backgroundColors = '#FFFFFF',  
     ...rest 
 }: WelcomeProps ){
+  const { fontScale } = useWindowDimensions();
+
   return (
-    <TouchableOpacity className="w-40 h-14 justify-center items-center rounded-lg
+    <TouchableOpacity  
+        className="justify-center items-center rounded-lg
         " {...rest}>
       <Text style={{ 
-        // width: normalize(160),
-        // height: normalize(56),
+        width: normalize(150),
+        height: normalize(50,'height'),
         backgroundColor: backgroundColors,
         textAlign: "center",
         textAlignVertical: "center",
         color: titleColors,
-      }} className="w-40 h-14 text-lg font-poppins-semibold rounded-lg">
+        fontSize: 20 * fontScale,
+        borderRadius: normalize(12),
+      }} className=" font-poppins-semibold ">
         {title}
       </Text>      
     </TouchableOpacity>

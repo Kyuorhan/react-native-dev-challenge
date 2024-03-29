@@ -1,4 +1,4 @@
-import { Image, View, Text, StyleSheet } from 'react-native'
+import { Image, View, Text, StyleSheet, useWindowDimensions } from 'react-native'
 import { Link, router } from 'expo-router' 
 
 import { theme } from '@/theme'
@@ -7,7 +7,7 @@ import { WelcomeButton } from '@/components/button/welcome_button'
 import normalize from 'react-native-normalize';
 
 export default function Home() {
-  const Login = <Link href={'/'}></Link>
+  const { fontScale } = useWindowDimensions();
   
   return (
     <View style={styles.container}>
@@ -22,21 +22,25 @@ export default function Home() {
           className="text-primary text-center text-3xl font-poppins-semibold pt-5 pb-5">
         Discover Your {"\n"} Dream Job here
       </Text>  
-      <Text style={styles.subtitle} className="text-black text-sm font-poppins-regular text-center mx-10">
-          Explore all the existing job roles based on your {"\n"} interest and study major
+      <Text style={{
+        maxWidth: normalize(300),
+        alignSelf: "center",
+        fontSize: 14 * fontScale,
+      }} className="text-black font-poppins-regular text-center">
+        Explore all the existing job roles based on your {"\n"} interest and study major
       </Text> 
       <Image style={styles.unionContainer}          
         source={require("@/assets/images/union.png")}>
       </Image>     
       <View style={
         styles.buttonContainer
-      } className='flex-row p bottom-6'>
+      } className='flex-row bottom-6'>
         <WelcomeButton style={{
               shadowColor: theme.colors.primary,
               shadowOffset: { width: 0, height: 2 },
               shadowOpacity: 0.8,
-              shadowRadius: 10,
-              elevation: 8,
+              shadowRadius: normalize(10),
+              elevation: normalize(8),
           }} className='mx-2.5'           
           title="Login" 
           titleColors={theme.colors.white}  
@@ -47,13 +51,11 @@ export default function Home() {
           title="Register" 
           titleColors={theme.colors.input}  
           onPress={() => router.navigate('/signup/')}        
-        />
-        
+        />   
       </View>   
     </View>
   )
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -62,13 +64,12 @@ const styles = StyleSheet.create({
     paddingTop: '10%',
     justifyContent: 'space-between',    
     alignItems: "center",
-    // backgroundColor: "#1F41BB",
   },
   logoContainer: {  
     maxWidth: normalize(350),
     maxHeight: normalize(420),
     // width: '100%',
-    height: normalize(400), 
+    height: normalize(345, 'height'), 
     alignSelf: "center",
   },
   eclipseContainer: {
@@ -89,17 +90,13 @@ const styles = StyleSheet.create({
     width: '100%',
     maxWidth: normalize(320),
     justifyContent: "center",
-    marginBottom: 10,
-  },
-  subtitle: { 
-    width: '100%',
-    maxWidth: normalize(300),
-    alignSelf: "center",
-  },    
+    marginBottom: normalize(10),
+  },  
+  // backgroundColor: '#1F41BB'
   buttonContainer: {
-    bottom: '15%',
+    position: 'absolute',
+    bottom: normalize(105, 'height'),
     justifyContent: 'center',    
     width: '100%',
-    position: 'absolute',
   },
 });

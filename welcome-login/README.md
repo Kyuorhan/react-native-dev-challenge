@@ -31,13 +31,6 @@
 
 ###
 
-
-### <h3 align="center">Layout</h3>
-##
-
-###
-
-
 ### <h3 align="center">Layout</h3>
 ##
 
@@ -52,7 +45,7 @@
 
 <br>
 
-Projeto no **``` Figma ```**
+Confira no projeto do **``` Figma ```**
 <p> 
     
   >- [Mobile](https://www.figma.com/file/8bXE8oDZMwkclGo75rciWa/Onboarding-(Login-%26-Register)--App-Ui-(Community)?type=design&node-id=0%3A1&mode=design&t=mxP77cr8ySn26XMw-1) 📱

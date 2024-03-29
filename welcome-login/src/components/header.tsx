@@ -2,6 +2,7 @@ import {
   Image, 
   Text, 
   TextProps, 
+  ScrollView,
   View, 
   StyleSheet,
   TouchableOpacity,
@@ -32,8 +33,10 @@ export function Header({
       />
       <View style={styles.textContainer}>
         <Text style={{
-          fontSize: 30 * fontScale,
-        }} className='text-primary text-center text-3xl font-poppins-bold pt-5 pb-1'>
+          fontSize: 30 * fontScale + normalize(1),
+          paddingTop: normalize(10, 'height'),
+          paddingBottom: normalize(10),
+        }} className='text-primary text-center text-3xl font-poppins-bold'>
           {title}
         </Text>  
         <Text {...subTitleProps}>
@@ -63,18 +66,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     // backgroundColor: "#1F41BB",
   },
-  buttomContainer: {
-    left: '1.5%',
-    top: '20%', 
-    position: 'absolute',
-  },
   eclipseContainer: {
     width: normalize(650),
     height: normalize(611),
     right: '-78%',
     top: normalize(-320),
     position: 'absolute',
-  },     
+  },    
+  buttomContainer: {
+    left: '1.5%',
+    top: '20%', 
+    position: 'absolute',
+  },   
   textContainer: {
     width: normalize(320),
     marginTop: '20%',

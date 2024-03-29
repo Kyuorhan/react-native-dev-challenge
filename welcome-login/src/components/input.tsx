@@ -2,15 +2,13 @@ import {
   View, 
   TextInput, 
   TextInputProps, 
-  StyleSheet,  
+  StyleSheet,
+  useWindowDimensions,  
 } from "react-native";
 import { useState } from "react";
 import normalize from "react-native-normalize";
 
 import { fonts } from "@/theme/fonts";
-import { getStyle } from "react-native-svg/lib/typescript/xml";
-
-
 
 type InputProps = TextInputProps & {
   placeholder?: string
@@ -26,12 +24,37 @@ export function Input({
   ...rest 
 }: InputProps ) {
   const [isFocused, setFocus] = useState(false);  
+  const { fontScale } = useWindowDimensions();
+
+  const inputFocused = {
+    input: {
+      width: normalize(280),
+      height: normalize(56),
+      borderRadius: normalize(10),
+      paddingVertical: normalize(10),
+      paddingHorizontal: normalize(20),
+      fontFamily: fonts.family.medium,
+      fontSize: fonts.size.body.sm * fontScale + normalize(1),
+      backgroundColor: '#F1F4FF',
+    },
+    inputFocus: {
+      width: normalize(280),
+      height: normalize(56),
+      borderColor: '#1F41BB', 
+      borderWidth: 2,
+      borderRadius: normalize(10),
+      paddingVertical: normalize(10),
+      paddingHorizontal: normalize(20),
+      fontFamily: fonts.family.medium,
+      fontSize: fonts.size.body.sm * fontScale + normalize(1),
+      backgroundColor: '#F1F4FF', 
+    }, 
+  }
 
   return (
-    <View style={styles.container}>
-      
+    <View style={styles.container}>      
       <TextInput 
-        style={isFocused ? styles.inputFocus : styles.input}
+        style={isFocused ? inputFocused.inputFocus : inputFocused.input}
         placeholder={placeholder} 
         placeholderTextColor={'#626262'}
         onFocus={() => setFocus(true)}
@@ -48,27 +71,5 @@ export function Input({
 const styles = StyleSheet.create({
   container: {
     padding: normalize(12),     
-  },    
-  input: {
-    width: normalize(300),
-    height: normalize(50, 'height'),
-    borderRadius: normalize(10),
-    paddingVertical: normalize(10),
-    paddingHorizontal: normalize(20),
-    fontFamily: fonts.family.medium,
-    fontSize: normalize(fonts.size.body.sm),
-    backgroundColor: '#F1F4FF',
-  },
-  inputFocus: {
-    width: normalize(300),
-    height: normalize(56, ),
-    borderColor: '#1F41BB', 
-    borderWidth: 2,
-    borderRadius: normalize(10),
-    paddingVertical: normalize(10),
-    paddingHorizontal: normalize(20),
-    fontFamily: fonts.family.medium,
-    fontSize: normalize(fonts.size.body.sm),
-    backgroundColor: '#F1F4FF', 
-  },  
+  },     
 })
